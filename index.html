@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Special 💖</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:"Comic Sans MS", cursive;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    text-align:center;
+    overflow:hidden;
+    color:white;
+}
+
+h1{
+    margin-top:40px;
+    font-size:30px;
+}
+
+.box{
+    margin:20px auto;
+    width:85%;
+    background:rgba(255,255,255,0.2);
+    padding:20px;
+    border-radius:20px;
+    backdrop-filter:blur(5px);
+    font-size:17px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    margin:10px;
+    font-size:15px;
+}
+
+#yes{background:white;color:#ff4f81;}
+#no{background:#ff4f81;color:white;position:absolute;}
+
+#foto{
+    display:none;
+    margin-top:20px;
+}
+
+#foto img{
+    width:200px;
+    border-radius:20px;
+    box-shadow:0 0 15px white;
+}
+
+#ending{
+    display:none;
+    font-size:28px;
+    margin-top:20px;
+}
+
+.heart{
+    position:absolute;
+    top:-10px;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{transform:translateY(100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentine Sayangku 💕</h1>
+
+<div class="box">
+    Hai kamu yang paling ceria dan paling lucu nangisnya 🥺💖  
+    Makasih udah hadir di hidup aku.  
+    Aku tau kadang aku ngeselin, kadang kamu ngambek,  
+    tapi aku selalu milih kamu.  
+    Hari ini, besok, dan seterusnya 😌  
+</div>
+
+<h2>Pilih dengan jujur ya 😏</h2>
+<p>Kamu pilih aku atau coklat? 🍫</p>
+
+<button id="yes" onclick="lanjut()">Aku ❤️</button>
+<button id="no" onmouseover="lari()">Coklat 🍫</button>
+
+<div id="foto">
+    <p>Ini kitaaa 😆💕</p>
+    <img src="foto berdua.jpg" alt="Foto Kita berdua">
+</div>
+
+<div id="ending">
+    <p>Will you stay with me forever? 💍💖</p>
+    <button onclick="alert('YEAYYY aku sayang kamu selamanya 😆💕')">
+        Iya dong ❤️
+    </button>
+</div>
+
+<!-- Lagu -->
+<audio autoplay loop>
+    <source src="hindia.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function lari(){
+    const btn=document.getElementById("no");
+    btn.style.top=Math.random()*window.innerHeight+"px";
+    btn.style.left=Math.random()*window.innerWidth+"px";
+}
+
+function lanjut(){
+    document.getElementById("foto").style.display="block";
+    document.getElementById("ending").style.display="block";
+}
+
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(Math.random()*3+2)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},5000);
+}
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
